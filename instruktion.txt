@@ -1,0 +1,29 @@
+podman build -t hlx-webhook-callback .
+podman run -e TARGET_URL="http://localhost:5000/mock-webhook" -p 5000:5000 hlx-webhook-callback
+kubectl apply -f configmap.yaml
+kubectl apply -f deployment.yaml
+
+export BMC_USERNAME='your-username'
+export BMC_PASSWORD='your-password'
+export BMC_LOGIN_URL='https://bmc-helix-api-url.com/authenticate'
+export BMC_WEBHOOK_URL='https://bmc-helix-api-url.com/webhook/callback'
+
+set BMC_USERNAME=your-username
+set BMC_PASSWORD=your-password
+set BMC_LOGIN_URL=https://bmc-helix-api-url.com/authenticate
+set BMC_WEBHOOK_URL=https://bmc-helix-api-url.com/webhook/callback
+
+podman run -d \
+  --name hlx-webhook-callback \
+  -p 5000:5000 \
+  -e LOG_LEVEL='DEBUG' \
+  -e BMC_USERNAME='your-username' \
+  -e BMC_PASSWORD='your-password' \
+  -e BMC_LOGIN_URL='https://bmc-helix-api-url.com/authenticate' \
+  -e BMC_WEBHOOK_URL='https://bmc-helix-api-url.com/webhook/callback' \
+  fhlx-webhook-callback
+
+podman run -d --name hlx-webhook-callbackp -p 5000:5000 -e LOG_LEVEL='DEBUG' -e BMC_USERNAME='your-username' -e BMC_PASSWORD='your-password' -e BMC_LOGIN_URL='https://bmc-helix-api-url.com/authenticate' -e BMC_WEBHOOK_URL='https://bmc-helix-api-url.com/webhook/callback' hlx-webhook-callback
+
+# Exempel på data som inkommer
+{'groups': [], 'realm': 'realm-namn', 'login': 'user123', 'tenant': 'tenant-value'}

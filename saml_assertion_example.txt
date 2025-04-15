@@ -1,0 +1,17 @@
+{
+  "saml_assertion": {
+    "issuer": "https://helix-sso.bmc.com",
+    "subject": "johndoe",  // Användarnamn här (kan vara e-post eller annat ID)
+    "attributes": {
+      "first_name": "John",
+      "last_name": "Doe",
+      "email": "johndoe@example.com",
+      "roles": ["admin", "user"]
+    },
+    "authn_context": {
+      "auth_method": "PasswordProtectedTransport",
+      "auth_level": "high"
+    },
+    "audience": "your-application.com"
+  }
+}
