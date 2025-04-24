@@ -1,6 +1,21 @@
 # hlx-hsso-callback
 Callback for Helix SSO to grep groups (claims) from SAML and creates/updates user i AR Server
 
+# Step-by-Step to install
+1. Configure SAML-authentication in HSSO
+2. Build and Setup this Container in your environment
+3. Import "hlx-hsso-callback.def" in your AR Environment
+4. Set up correct username and password in the secret (this must be a user that has permissions to create submit in form hlx-hsso-callback)
+5. Set Webhook Callback URL in HSSO for the Realm (to point at the hlx-hsso-callback service)
+6. Test and verify that the claims are created in the AR form "hlx-hsso-callback"
+7. Build your own workflow to create users and build permissions for the user on the form "hlx-hsso-callback".
+The provided application here only shows that we can recieve a submit with user information from SAML claims.
+What you do with this is up to you :)
+
+
+-----------------------------------------------------------------------------------
+
+
 # Build image
 podman build -t hlx-hsso-callback .
 
