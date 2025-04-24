@@ -4,11 +4,6 @@ podman run -v $(pwd)/fields_config.json:/config/fields_config.json:ro -e FIELDS_
 kubectl apply -f configmap.yaml
 kubectl apply -f deployment.yaml
 
-export BMC_USERNAME='your-username'
-export BMC_PASSWORD='your-password'
-export BMC_LOGIN_URL='https://bmc-helix-api-url.com/authenticate'
-export BMC_WEBHOOK_URL='https://bmc-helix-api-url.com/webhook/callback'
-
 set BMC_USERNAME=your-username
 set BMC_PASSWORD=your-password
 set BMC_LOGIN_URL=https://bmc-helix-api-url.com/authenticate

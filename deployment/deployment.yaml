@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hlx-hsso-callback
+  labels:
+    app: hlx-hsso-callback
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hlx-hsso-callback
+  template:
+    metadata:
+      labels:
+        app: hlx-hsso-callback
+    spec:
+      containers:
+        - name: hlx-hsso-callback
+          image: hlx-hsso-callback:latest
+          ports:
+            - containerPort: 5000
+          env:
+            - name: BMC_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: hlx-hsso-credentials
+                  key: username
+            - name: BMC_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: hlx-hsso-credentials
+                  key: password
+            - name: BMC_LOGIN_URL
+              value: "https://bmc.example.com/authenticate"
+            - name: BMC_WEBHOOK_URL
+              value: "https://bmc.example.com/webhook/callback"
+            - name: LOG_LEVEL
+              value: "DEBUG"
+            - name: FIELDS_CONFIG_PATH
+              value: "/config/fields_config.json"
+          volumeMounts:
+            - name: fields-config
+              mountPath: /config
+              readOnly: true
+      volumes:
+        - name: fields-config
+          configMap:
+            name: hlx-hsso-callback-config
