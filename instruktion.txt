@@ -27,3 +27,13 @@ podman run -d --name hlx-webhook-callbackp -p 5000:5000 -e LOG_LEVEL='DEBUG' -e 
 
 # Exempel på data som inkommer
 {'groups': [], 'realm': 'realm-namn', 'login': 'user123', 'tenant': 'tenant-value'}
+
+
+
+volumeMounts:
+  - name: config-volume
+    mountPath: /config
+volumes:
+  - name: config-volume
+    configMap:
+      name: bmc-fields-config

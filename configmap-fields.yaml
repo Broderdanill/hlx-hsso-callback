@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bmc-fields-config
+data:
+  fields_config.json: |
+    {
+      "fields": [
+        "login",
+        "groups",
+        "givenname",
+        "surname",
+        "emailaddress",
+        "tenant",
+        "realm"
+      ]
+    }
