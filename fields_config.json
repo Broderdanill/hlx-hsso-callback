@@ -1,0 +1,12 @@
+{
+    "fields": [
+      "login",
+      "groups",
+      "givenname",
+      "surname",
+      "emailaddress",
+      "tenant",
+      "realm",
+      "test"
+    ]
+  }

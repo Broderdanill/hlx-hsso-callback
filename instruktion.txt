@@ -1,5 +1,6 @@
-podman build -t hlx-webhook-callback .
-podman run -e TARGET_URL="http://localhost:5000/mock-webhook" -p 5000:5000 hlx-webhook-callback
+podman build -t hlx-hsso-callback .
+podman run -v $(pwd)/fields_config.json:/config/fields_config.json:ro -e FIELDS_CONFIG_PATH=/config/fields_config.json -e BMC_USERNAME=youruser -e BMC_PASSWORD=yourpass -e BMC_LOGIN_URL=https://test.com -e BMC_WEBHOOK_URL=https://test.com -p 5000:5000 hlx-hsso-callback
+
 kubectl apply -f configmap.yaml
 kubectl apply -f deployment.yaml
 
