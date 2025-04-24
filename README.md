@@ -9,3 +9,23 @@ podman run -v $(pwd)/fields_config.json:/config/fields_config.json:ro -e FIELDS_
 
 # Example of claims from Helix SSO
 {'groups': [], 'realm': 'realm-namn', 'login': 'user123', 'tenant': 'tenant-value'}
+
+# SAML Assertion example
+{
+  "saml_assertion": {
+    "issuer": "https://helix-sso.bmc.com",
+    "subject": "johndoe",
+    "attributes": {
+      "first_name": "John",
+      "last_name": "Doe",
+      "email": "johndoe@example.com",
+      "roles": ["admin", "user"]
+    },
+    "authn_context": {
+      "auth_method": "PasswordProtectedTransport",
+      "auth_level": "high"
+    },
+    "audience": "your-application.com"
+  }
+}
+
