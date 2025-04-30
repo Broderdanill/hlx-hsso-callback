@@ -21,8 +21,8 @@ logger = logging.getLogger(__name__)
 # Miljövariabler
 BMC_USERNAME = os.getenv('BMC_USERNAME', 'default-username')
 BMC_PASSWORD = os.getenv('BMC_PASSWORD', 'default-password')
-BMC_LOGIN_URL = os.getenv('BMC_LOGIN_URL', 'https://bmc-helix-api-url.com/authenticate')
-BMC_WEBHOOK_URL = os.getenv('BMC_WEBHOOK_URL', 'https://bmc-helix-api-url.com/webhook/callback')
+BMC_LOGIN_URL = os.getenv('BMC_LOGIN_URL', 'https://your-restapi-url')
+BMC_WEBHOOK_URL = os.getenv('BMC_WEBHOOK_URL', 'https://your-hlx-hsso-callback-service-url')
 
 # Gruppfiltrering
 ALLOWED_GROUPS = os.getenv('ALLOWED_GROUPS')

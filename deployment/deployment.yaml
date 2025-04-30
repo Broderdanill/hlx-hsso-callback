@@ -31,7 +31,7 @@ spec:
                   name: hlx-hsso-credentials
                   key: password
             - name: BMC_LOGIN_URL
-              value: "https://bmc.example.com/authenticate"
+              value: "https://localhost:8008/"
             - name: BMC_WEBHOOK_URL
               value: "https://bmc.example.com/webhook/callback"
             - name: LOG_LEVEL

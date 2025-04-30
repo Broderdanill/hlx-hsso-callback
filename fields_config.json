@@ -6,7 +6,6 @@
       "surname",
       "emailaddress",
       "tenant",
-      "realm",
-      "test"
+      "realm"
     ]
   }
