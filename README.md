@@ -37,6 +37,9 @@ If you have come this far you can now build your own functionality on how to cre
 The onAuth call will be handeled before user beeing logged in, so when this workflow is done and given "http status 200" the user will be logged in with the groups you deisre
 
 
+# Bonus / Nice to know about
+If you want to hinder users not in specific group(s) to even access Helix at all you can use the env-variable in deployment "ALLOWED_GROUPS" to set which groups that are allowed to access. If you set the variable empty then all groups are allowed and you need to handle them all in your application in Innovation Studio.
+
 
 ----------------------------------------------------------------------------------
 
