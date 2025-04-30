@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: hlx-hsso-callback
-          image: hlx-hsso-callback:latest
+          image: <your-url-to-images>hlx-hsso-callback:latest
           ports:
             - containerPort: 5000
           env:
